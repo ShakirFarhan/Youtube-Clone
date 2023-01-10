@@ -3,7 +3,6 @@ import Menu from '../assets/Menu'
 import logo from "../assets/ytLogo.png"
 import { Link } from 'react-router-dom';
 import { setSidebarExtendedValue } from '../redux/categorySlice';
-import { AiOutlineSearch } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Stack from '@mui/material/Stack';

@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import Sidebar from '../components/Sidebar'
+import React, { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import VideoCard from '../components/VideoCard'
-import fetchApi from '../utils/Fetch'
 import { getCategoryVideos } from '../redux/categorySlice'
 import { useDispatch, useSelector } from 'react-redux'
 import timeSince from '../utils/date'
@@ -12,10 +10,9 @@ function Feed() {
   const dispatch = useDispatch()
   const { categoryVideos } = useSelector((state) => state.category)
   const { sidebarExtend } = useSelector((state) => state.category)
-  const pageRoute = useNavigate()
   useEffect(() => {
     dispatch(getCategoryVideos(`search?part=snippet&q=${id ? id : "suggested"}`))
-    document.title = `${id ? id : "Home" + "-" + "Youtube"}`
+    document.title = `${id ? id + "- Youtube" : "Home - Youtube"}`
   }, [id])
   var aDay = 24 * 60 * 60 * 1000;
   return (
@@ -27,7 +24,7 @@ function Feed() {
         {
           categoryVideos?.map((e, index) => {
             return (
-              <div style={{ marginTop: index == 0 ? "0px" : "0px" }}>
+              <div style={{ marginTop: index === 0 ? "0px" : "0px" }}>
                 <VideoCard key={index} title={e.snippet.title} thumbnail={e.snippet?.thumbnails?.medium?.url} on={timeSince(new Date(Date.parse(e.snippet.publishedAt) - aDay))} channel={e.snippet.channelTitle} channelId={e.snippet.channelId} videoId={e.id.videoId} />
               </div>
             )
