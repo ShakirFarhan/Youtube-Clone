@@ -19,7 +19,7 @@ function Feed() {
     <>
       {/* <Sidebar /> */}
       <div className={`sm:hidden overlayEffect ${sidebarExtend ? "block" : "hidden"}`}></div>
-      <div className={`pl-0  ${sidebarExtend ? "sm:pl-[180px]" : "sm:pl-[70px]"} flex flex-wrap gap-x-[3%] pt-20 ml-4 gap-y-6`}>
+      <div className={`pl-0  ${sidebarExtend ? "sm:pl-[180px]" : "sm:pl-[70px]"} feedGrid grid sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-x-[4%] pt-20 mx-3 sm:ml-4 md:pr-[28px] lg:pr-14 gap-y-6 max-w-[100%] bg-contain `}>
 
         {
           categoryVideos?.map((e, index) => {

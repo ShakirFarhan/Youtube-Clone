@@ -74,7 +74,7 @@ function Sidebar() {
           }
         </div>
       </div>
-      <div className=' block sm:hidden bg-[#ffff] top-0 fixed z-10 transition ease-in-out delay-150'>
+      <div className=' block sm:hidden bg-[#ffff] top-0 fixed z-10 transition ease-in-out delay-150 h-[100vh]'>
         <div className={`${sidebarExtended ? "block" : "hidden"} flex items-center space-x-4 ml-3 -mt-4 pl-2`}>
           <button className='' onClick={() => {
             dispatch(setSidebarExtendedValue(!sidebarExtended))

@@ -9,11 +9,11 @@ import convertToInternationalCurrencySystem from '../utils/convert'
 const Video = (props) => {
   const pageRoute = useNavigate()
   return (
-    <div className='flex w-[90%] gap-x-4 cursor-pointer'>
+    <div className='flex w-[90%] items-center sm:items-start gap-x-4 cursor-pointer'>
       <img alt="Video Thumbnail" onClick={() => pageRoute(`/watch/${props.videoId}`)} className='max-w-[210px] h-[110px] bg-cover' src={props.thumbnail} />
       <div>
-        <h3 onClick={() => pageRoute(`/watch/${props.videoId}`)} className='text-[18px] font-medium tracking-wide text-[#000000] leading-[24px] w-[100%]'>{props.title}</h3>
-        <div onClick={() => pageRoute(`/channel/${props.channelId}`)} className='mt-1'>
+        <h3 onClick={() => pageRoute(`/watch/${props.videoId}`)} className='text-[15px] md:text-[16px] lg:text-[18px] font-medium tracking-wide text-[#000000]  md:leading-[24px] w-[115%] sm:w-[110%]'>{props.title}</h3>
+        <div onClick={() => pageRoute(`/channel/${props.channelId}`)} className='sm:mt-1'>
           <p className='text-[#606060] text-[13.5px] font-[500] tracking-wide'>{props.channel}</p>
           <p className='text-[#606060] text-[13.5px] font-medium tracking-wider -mt-1'>{props.on}</p>
         </div>
@@ -46,7 +46,7 @@ function VideoDetails() {
 
               {
                 videoDetails?.snippet?.tags?.map((e, index) => {
-                  return <a style={{ display: index > 4 ? "none" : "" }} className="text-[#3366CC] text-[13px] font-normal" href={`${e}`}>{e?.slice(0, 15)}</a>
+                  return <a style={{ display: index > 3 ? "none" : "" }} className="text-[#3366CC] text-[13px] font-normal" href={`${e}`}>{e?.slice(0, 15)}</a>
                 })
               }
             </div>
@@ -71,7 +71,7 @@ function VideoDetails() {
             </div>
           </div>
         </div>
-        <div className='flex flex-col gap-y-4 mt-40 sm:mt-40 lg:mt-0'>
+        <div className='flex flex-col gap-y-4 mt-48 sm:mt-40 lg:mt-0'>
 
           {
             relatedVideos?.map((e, index) => {
