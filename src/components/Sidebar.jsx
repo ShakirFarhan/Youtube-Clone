@@ -17,8 +17,8 @@ function Sidebar() {
   return (
     <>
       <Navbar sidebarExtended={sidebarExtended} setSidebarExtended={setSidebarExtended} />
-      <div className='absolute w-[10%] bg-[#fff] top-20 hidden sm:block overflow-y-scroll'>
-        <div className='flex flex-col gap-y-6 fixed overflow-scroll z-20' >
+      <div className='absolute w-[10%] bg-[#fff] top-20 hidden sm:block'>
+        <div className='flex flex-col gap-y-6 fixed z-20' >
           {
             categories.map((e) => {
 
@@ -74,7 +74,7 @@ function Sidebar() {
           }
         </div>
       </div>
-      <div className=' block sm:hidden bg-[#ffff] top-0 fixed z-10 transition ease-in-out delay-150 overflow-y-scroll'>
+      <div className=' block sm:hidden bg-[#ffff] top-0 fixed z-10 transition ease-in-out delay-150'>
         <div className={`${sidebarExtended ? "block" : "hidden"} flex items-center space-x-4 ml-3 -mt-4 pl-2`}>
           <button className='' onClick={() => {
             dispatch(setSidebarExtendedValue(!sidebarExtended))
