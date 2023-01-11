@@ -9,10 +9,10 @@ import convertToInternationalCurrencySystem from '../utils/convert'
 const Video = (props) => {
   const pageRoute = useNavigate()
   return (
-    <div className='flex w-[90%] items-center sm:items-start gap-x-4 cursor-pointer'>
-      <img alt="Video Thumbnail" onClick={() => pageRoute(`/watch/${props.videoId}`)} className='max-w-[210px] h-[110px] bg-cover' src={props.thumbnail} />
+    <div className='flex flex-col sm:flex-row w-[98%] sm:w-[90%] sm:items-center sm:items-start gap-x-4 cursor-pointer' >
+      <img alt="Video Thumbnail" onClick={() => pageRoute(`/watch/${props.videoId}`)} className='w-[100%] sm:w-[210px] sm:h-[110px] bg-cover' src={props.thumbnail} />
       <div>
-        <h3 onClick={() => pageRoute(`/watch/${props.videoId}`)} className='text-[15px] md:text-[16px] lg:text-[18px] font-medium tracking-wide text-[#000000]  md:leading-[24px] w-[115%] sm:w-[110%]'>{props.title}</h3>
+        <h3 onClick={() => pageRoute(`/watch/${props.videoId}`)} className='text-[15px] md:text-[16px] lg:text-[18px] font-medium tracking-wide text-[#000000]  md:leading-[24px] w-[100%] sm:w-[110%]'>{props.title}</h3>
         <div onClick={() => pageRoute(`/channel/${props.channelId}`)} className='sm:mt-1'>
           <p className='text-[#606060] text-[13.5px] font-[500] tracking-wide'>{props.channel}</p>
           <p className='text-[#606060] text-[13.5px] font-medium tracking-wider -mt-1'>{props.on}</p>
