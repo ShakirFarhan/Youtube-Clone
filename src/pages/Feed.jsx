@@ -11,7 +11,7 @@ function Feed() {
   const { categoryVideos } = useSelector((state) => state.category)
   const { sidebarExtend } = useSelector((state) => state.category)
   useEffect(() => {
-    dispatch(getCategoryVideos(`search?part=snippet&q=${id ? id : "suggested"}`))
+    dispatch(getCategoryVideos(`search?part=snippet&q=${id ? id : "Coding development"}`))
     document.title = `${id ? id + "- Youtube" : "Home - Youtube"}`
   }, [id])
   var aDay = 24 * 60 * 60 * 1000;
