@@ -57,7 +57,7 @@ function VideoDetails() {
               {/* <img className='rounded-[20px]' src="https://yt3.ggpht.com/wg1TITEoPfxvBGfzuqWyt3bqm_qu35ZhMswUv3feetU3xNX_6wsAXZF40OlPIgY4TmqbqCmAZ1U=s48-c-k-c0x00ffffff-no-rj" /> */}
               {/* <div className='flex flex-col -gap-y-6'> */}
 
-              <h5 onClick={() => pageRoute(`/channel/${videoDetails?.snippet?.channelId}`)} className='w-fit text-sm sm:text-md font-medium text-[#000000] px-3 py-2 rounded-[10px] bg-[#f2f2f2] tracking-wide'>{videoDetails?.snippet?.channelTitle}</h5>
+              <h5 onClick={() => pageRoute(`/channel/${videoDetails?.snippet?.channelId}`)} className='w-fit text-sm sm:text-md font-medium text-[#000000] px-3 py-2 rounded-[10px] bg-[#f2f2f2] tracking-wide cursor-pointer'>{videoDetails?.snippet?.channelTitle}</h5>
 
               {/* </div> */}
 
