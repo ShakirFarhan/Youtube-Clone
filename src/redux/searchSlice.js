@@ -19,18 +19,19 @@ const searchSlice = createSlice({
   name: "search",
   initialState,
   reducers: {},
-  extraReducers: {
-    [searchById.pending]: (state) => {
-      state.isLoading = true;
-    },
-    [searchById.fulfilled]: (state, { payload }) => {
-      state.searchResults = payload;
-      state.isLoading = false;
-    },
-    [searchById.rejected]: (state) => {
-      state.isLoading = false;
-      console.log("request rejected");
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(searchById.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(searchById.fulfilled, (state, { payload }) => {
+        state.searchResults = payload;
+        state.isLoading = false;
+      })
+      .addCase(searchById.rejected, (state) => {
+        state.isLoading = false;
+        console.log("Search by ID request rejected");
+      });
   },
 });
 export default searchSlice.reducer;
