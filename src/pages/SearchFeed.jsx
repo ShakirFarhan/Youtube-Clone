@@ -14,7 +14,7 @@ function SearchFeed() {
 
   useEffect(() => {
     dispatch(searchById(`search?part=snippet&q=${id}`))
-  }, [id])
+  }, [id,dispatch])
   return (
     <>
       <div className={`sm:hidden overlayEffect ${sidebarExtend ? "block" : "hidden"}`}></div>

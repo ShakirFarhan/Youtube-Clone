@@ -17,7 +17,7 @@ function ChannelDetails() {
   useEffect(() => {
     dispatch(getChannelVideos(`search?channelId=${id}&part=snippet&order=date`))
     dispatch(getChannelDetails(`channels?part=snippet&id=${id}`))
-  }, [id])
+  }, [id,dispatch])
   console.log(window.innerWidth)
   return (
     <>

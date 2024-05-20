@@ -31,17 +31,18 @@ const categorySlice = createSlice({
       state.sidebarExtend = payload;
     },
   },
-  extraReducers: {
-    [getCategoryVideos.pending]: (state, action) => {
-      state.isLoading = true;
-    },
-    [getCategoryVideos.fulfilled]: (state, { payload }) => {
-      state.categoryVideos = payload;
-      state.isLoading = false;
-    },
-    [getCategoryVideos.rejected]: (state) => {
-      state.isLoading = false;
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getCategoryVideos.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(getCategoryVideos.fulfilled, (state, { payload }) => {
+        state.categoryVideos = payload;
+        state.isLoading = false;
+      })
+      .addCase(getCategoryVideos.rejected, (state) => {
+        state.isLoading = false;
+      });
   },
 });
 export const { setSelectedCategory, setSidebarExtendedValue } =

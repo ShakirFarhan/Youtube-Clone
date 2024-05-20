@@ -24,7 +24,7 @@ function Feed() {
         {
           categoryVideos?.map((e, index) => {
             return (
-              <div style={{ marginTop: index === 0 ? "0px" : "0px" }}>
+              <div key={index} style={{ marginTop: index === 0 ? "0px" : "0px" }}>
                 <VideoCard key={index} title={e.snippet.title} thumbnail={e.snippet?.thumbnails?.medium?.url} on={timeSince(new Date(Date.parse(e.snippet.publishedAt) - aDay))} channel={e.snippet.channelTitle} channelId={e.snippet.channelId} videoId={e.id.videoId} />
               </div>
             )

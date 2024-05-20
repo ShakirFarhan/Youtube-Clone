@@ -33,27 +33,29 @@ export const channelSlice = createSlice({
   name: "channel",
   initialState,
   reducers: {},
-  extraReducers: {
-    [getChannelVideos.pending]: (state) => {
-      state.isLoading = true;
-    },
-    [getChannelVideos.fulfilled]: (state, { payload }) => {
-      state.channelVideos = payload;
-      state.isLoading = false;
-    },
-    [getChannelVideos.rejected]: (state) => {
-      console.log("request rejected");
-    },
-    [getChannelDetails.pending]: (state) => {
-      state.isLoading = true;
-    },
-    [getChannelDetails.fulfilled]: (state, { payload }) => {
-      state.channelDetails = payload;
-      state.isLoading = false;
-    },
-    [getChannelDetails.rejected]: (state) => {
-      state.isLoading = false;
-    },
+  extraReducers:(builder)=> {
+    builder
+      .addCase(getChannelVideos.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getChannelVideos.fulfilled, (state, { payload }) => {
+        state.channelVideos = payload;
+        state.isLoading = false;
+      })
+      .addCase(getChannelVideos.rejected, (state) => {
+        console.log("Channel videos request rejected");
+      })
+      .addCase(getChannelDetails.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getChannelDetails.fulfilled, (state, { payload }) => {
+        state.channelDetails = payload;
+        state.isLoading = false;
+      })
+      .addCase(getChannelDetails.rejected, (state) => {
+        console.log("Channel details request rejected");
+        state.isLoading = false;
+      });
   },
 });
 

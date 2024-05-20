@@ -12,8 +12,10 @@ import { BsLaptopFill } from "react-icons/bs";
 import { IoFastFoodOutline } from "react-icons/io5";
 import { IoSkullSharp } from "react-icons/io5";
 import { IoSkullOutline } from "react-icons/io5";
-import { BsStar } from "react-icons/bs";
-import { BsStarFill } from "react-icons/bs";
+// import { BsStar } from "react-icons/bs";
+// import { BsStarFill } from "react-icons/bs";
+import { MdOutlineSportsCricket } from "react-icons/md";
+import { MdSportsCricket } from "react-icons/md";
 
 const categories = [
   {
@@ -61,10 +63,10 @@ const categories = [
     active: <IoSkullSharp style={{ height: "22px", width: "30px" }} />,
   },
   {
-    id: 8,
-    name: "Olivia Rodrigo",
-    icon: <BsStar style={{ height: "22px", width: "30px" }} />,
-    active: <BsStarFill style={{ height: "22px", width: "30px" }} />,
-  },
+    id:8,
+    name:"Cricket",
+    icon:<MdOutlineSportsCricket style={{ height: "22px", width: "30px" }} />,
+    active: <MdSportsCricket style={{ height: "22px", width: "30px" }} />,
+  }
 ];
 export default categories;
