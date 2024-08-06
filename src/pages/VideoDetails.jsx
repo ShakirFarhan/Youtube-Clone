@@ -80,9 +80,7 @@ function VideoDetails() {
               )
             })
           }
-
         </div>
-
       </div>
     </>
   )
