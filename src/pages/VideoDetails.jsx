@@ -8,6 +8,7 @@ import timeSince from "../utils/date";
 import convertToInternationalCurrencySystem from "../utils/convert";
 const Video = (props) => {
   const pageRoute = useNavigate();
+  const { darkMode } = useSelector((state) => state.darkMode);
   return (
     <div className="flex flex-col sm:flex-row w-[98%] sm:w-[90%] sm:items-center sm:items-start gap-x-4 cursor-pointer">
       <img
@@ -19,7 +20,9 @@ const Video = (props) => {
       <div>
         <h3
           onClick={() => pageRoute(`/watch/${props.videoId}`)}
-          className="text-[15px] md:text-[16px] lg:text-[18px] font-medium tracking-wide text-[#000000]  md:leading-[24px] w-[100%] sm:w-[110%]"
+          className={`text-[15px] md:text-[16px] lg:text-[18px] font-medium tracking-wide md:leading-[24px] w-[100%] sm:w-[110%] ${
+            darkMode ? "text-white" : "text-[#000000]"
+          }`}
         >
           {props.title}
         </h3>
@@ -54,6 +57,9 @@ function VideoDetails() {
     );
   }, [id, dispatch]);
 
+  useEffect(() => {
+    document.body.style.backgroundColor = darkMode ? "#131417" : "#fff";
+  }, [darkMode]);
   return (
     <>
       <div
@@ -90,8 +96,8 @@ function VideoDetails() {
               })}
             </div>
             <h2
-              className={`text-md sm:text-xl md:text-2xl text-[#000000] font-medium
-                ${darkMode && "text-white"}
+              className={`text-md sm:text-xl md:text-2xl font-medium
+                ${darkMode ? "text-white" : "text-[#000000]"}
               `}
             >
               {videoDetails?.snippet?.title}
@@ -104,8 +110,10 @@ function VideoDetails() {
                 onClick={() =>
                   pageRoute(`/channel/${videoDetails?.snippet?.channelId}`)
                 }
-                className={`w-fit text-sm sm:text-md font-medium text-[#000000] px-3 py-2 rounded-[10px] bg-[#f2f2f2] tracking-wide ${
-                  darkMode && "text-white bg-dark"
+                className={`w-fit text-sm sm:text-md font-medium px-3 py-2 rounded-[10px] tracking-wide ${
+                  darkMode
+                    ? "text-white bg-dark"
+                    : "bg-[#f2f2f2] text-[#000000]"
                 }`}
               >
                 {videoDetails?.snippet?.channelTitle}
@@ -121,8 +129,8 @@ function VideoDetails() {
                 >
                   <FiThumbsUp className="w-10 h-6" />
                   <span
-                    className={`text-[12.4px] sm:text-[14.4px] text-[#0f0f0f] font-medium tracking-wide
-                  ${darkMode && "text-white"}
+                    className={`text-[12.4px] sm:text-[14.4px] font-medium tracking-wide
+                  ${darkMode ? "text-white" : "text-[#0f0f0f]"}
                     `}
                   >
                     {convertToInternationalCurrencySystem(
@@ -131,8 +139,12 @@ function VideoDetails() {
                   </span>
                 </div>
                 <span
-                  className={`text-[12.4px] sm:text-[14.4px] text-[#0f0f0f] font-medium tracking-wide bg-[#f2f2f2] px-3 py-2 rounded-[10px]
-                    ${darkMode && "bg-dark text-white"}
+                  className={`text-[12.4px] sm:text-[14.4px] font-medium tracking-wide px-3 py-2 rounded-[10px]
+                    ${
+                      darkMode
+                        ? "bg-dark text-white"
+                        : "text-[#0f0f0f] bg-[#f2f2f2]"
+                    }
                   `}
                 >
                   {convertToInternationalCurrencySystem(

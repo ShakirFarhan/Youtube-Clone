@@ -8,6 +8,7 @@ function SearchFeed() {
   const { id } = useParams()
   const { searchResults } = useSelector((state) => state.search)
   const { sidebarExtend } = useSelector((state) => state.category)
+  const { darkMode } = useSelector((state) => state.darkMode)
   const dispatch = useDispatch()
   const pageRoute = useNavigate()
   var aDay = 24 * 60 * 60 * 1000;
@@ -15,6 +16,10 @@ function SearchFeed() {
   useEffect(() => {
     dispatch(searchById(`search?part=snippet&q=${id}`))
   }, [id,dispatch])
+
+  useEffect(() => {
+    document.body.style.backgroundColor = darkMode ? "#131417" : "#fff";
+  }, [darkMode]);
   return (
     <>
       <div className={`sm:hidden overlayEffect ${sidebarExtend ? "block" : "hidden"}`}></div>

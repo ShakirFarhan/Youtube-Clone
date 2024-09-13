@@ -12,12 +12,17 @@ function ChannelDetails() {
   const { sidebarExtend } = useSelector((state) => state.category)
   const { channelDetails } = useSelector((state) => state.channel)
   const { channelVideos } = useSelector((state) => state.channel)
+  const { darkMode } = useSelector((state) => state.darkMode)
   var aDay = 24 * 60 * 60 * 1000;
   console.log(channelDetails.snippet)
   useEffect(() => {
     dispatch(getChannelVideos(`search?channelId=${id}&part=snippet&order=date`))
     dispatch(getChannelDetails(`channels?part=snippet&id=${id}`))
   }, [id,dispatch])
+
+  useEffect(() => {
+    document.body.style.backgroundColor = darkMode ? "#131417" : "#fff";
+  }, [darkMode]);
   console.log(window.innerWidth)
   return (
     <>

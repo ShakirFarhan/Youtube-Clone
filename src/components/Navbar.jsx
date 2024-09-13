@@ -74,8 +74,8 @@ function Navbar({ sidebarExtended, setSidebarExtended }) {
                   type="search"
                   name="search"
                   id="default-search"
-                  className={`block p-2 pl-10 w-full text-sm text-gray-900 ${
-                    darkMode ? "bg-dark" : "bg-gray-50"
+                  className={`block p-2 pl-10 w-full text-sm ${
+                    darkMode ? "bg-dark text-white" : "bg-gray-50 text-gray-900"
                   } rounded-lg border-[1px] border-[#cccccc] focus:outline-none`}
                   placeholder="Search"
                   required
