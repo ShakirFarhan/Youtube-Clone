@@ -23,7 +23,11 @@ module.exports = {
   },
   content: ["./src/**/*.{html,js,jsx}", "./public/*"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        dark: "#131417",
+      },
+    },
   },
   plugins: [],
 };
