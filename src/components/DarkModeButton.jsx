@@ -7,7 +7,7 @@ function DarkModeButton() {
 
   return (
     <button
-      className="flex-grow flex gap-4"
+      className="pr-4"
       onClick={() => {
         dispatch(setDarkMode());
       }}
