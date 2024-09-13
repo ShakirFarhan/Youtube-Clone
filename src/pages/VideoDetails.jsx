@@ -57,6 +57,9 @@ function VideoDetails() {
     );
   }, [id, dispatch]);
 
+  useEffect(() => {
+    document.body.style.backgroundColor = darkMode ? "#131417" : "#fff";
+  }, [darkMode]);
   return (
     <>
       <div
