@@ -24,7 +24,7 @@ function VideoCard(props) {
           <h3
             onClick={() => pageRoute(`/watch/${props.videoId}`)}
             className={`text-[14px] lg:text-[16px] font-semibold leading-[20px] w-[94%] ${
-              darkMode && "text-black"
+              darkMode && "text-white"
             }`}
           >
             {props.title?.slice(0, 60)}
